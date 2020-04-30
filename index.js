@@ -13,18 +13,6 @@ app.use(bodyParser.json());
 const uri = process.env.DB_PATH
 
 let client = new MongoClient(uri, { useNewUrlParser: true });
-const users = ["Asad", "Jamal" ,"Kamal", "Khalil", "Rahim"]
-
-const data = {
-    name:'Asad',
-    job: 'web dev',
-    salary: 700000,
-    company:{
-        name: 'ABC Company',
-        website: 'ABC.com',
-        email: 'abc@mail.com'
-    }
-}
 
 app.get('/products', (req, res) =>{
     
@@ -43,14 +31,6 @@ app.get('/products', (req, res) =>{
       });
 });
 
-app.get('/fruits/banana', (req, res)=>{
-    res.send({
-        fruit: 'banana',
-        quantity:1000,
-        price: 1000
-
-    });
-})
 
 app.get('/product/:key', (req, res) =>{
     const key = req.params.key;
